@@ -1,0 +1,10 @@
+
+{% load static %}
+<div class="box">
+    <a href="{{ e.url }}" class="image fit"><img src="/media/{{ e.photo_cover }}" alt="" /></a>
+        <div class="inner">
+            <h3>{{e.title}}</h3>
+            <p>{{ e.description }}</p>
+            <a href="{{ e.url }}" class="button fit" data-poptrox="iframe,800x400">Buy</a>
+        </div>
+</div>

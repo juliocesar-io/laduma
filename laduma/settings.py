@@ -25,7 +25,7 @@ SECRET_KEY = 'q5t#z6p3&^rl1r!^nw#kcbyn)8il0zccm2$(o(b(ulmzq(m)_8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -127,3 +127,7 @@ STATICFILES_DIRS = (
 
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT =  os.path.join('laduma/media')
