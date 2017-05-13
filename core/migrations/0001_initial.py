@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
             name='order',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('client', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='core.client')),
+                ('client', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='core.models.Client')),
             ],
         ),
         migrations.CreateModel(
