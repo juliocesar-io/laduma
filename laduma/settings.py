@@ -116,7 +116,14 @@ USE_L10N = True
 USE_TZ = True
 
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+
+
+STATICFILES_DIRS = (
+    os.path.join('laduma/static'),
+)
+
 
 STATIC_URL = '/static/'
