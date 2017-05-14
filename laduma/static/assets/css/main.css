@@ -1402,9 +1402,15 @@
 
 		}
 /* Template */
+	.title{
+		font-weight: 400;
+	}
 	.price {
 		color: #00C853;
 		font-weight: 100;
 		font-style: italic;
 
+	}
+	.link {
+		color: #311B92;
 	}

@@ -23,8 +23,14 @@
           <div class="row">
             <div class="col-md-6 col-md-offset-1 image fit"><img src="/media/{{ e.photo_cover }}" alt="image example of {{ e.title }} template" /></div>
             <div class="col-md-4">
-                <h1>{{ e.title }}</h1>
+                <h1 class = "title">{{ e.title }}</h1>
                 <h4 class = "price">{{ e.price }}</h4>
+                <br>
+                <p>{{ e.description }}</p>
+                <br>
+                <a class="link" href="{{ e.url }}" >Go to Live Demo >></a>
+                <br>
+                <button type="button" class="btn btn-primary">Save changes</button>git add
             </div>
           </div>
           <div class="row">
