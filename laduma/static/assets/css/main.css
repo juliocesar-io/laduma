@@ -1205,10 +1205,7 @@
 		give gallery's parent container a cursor: pointer.**/
 		.DivName {cursor: pointer}
 		}
-	.template-image-cover:hover{
-		opacity: 0.2;
 
-	}
 	.detail h3{
 		font-weight: 200;
 		color: white;
@@ -1228,7 +1225,7 @@
 
 	#cover .image-text {
 		position:relative;
-		top:-350px;
+		top:-300px;
 		left:0px;
 		color: white;
 		font-weight: 200;
@@ -1237,6 +1234,26 @@
 
 	#cover:hover .image-text {
 		visibility:visible;
+	}
+
+	#cover:hover .template-image-cover {
+		visibility:visible;
+		opacity: 0.2;
+
+	}
+
+	.template-btn{
+		background: transparent;
+		border: white 1px solid;
+	}
+
+	.template-btn:hover{
+		cursor: pointer;
+	}
+
+	.play{
+		position:relative;
+		top:5px;
 	}
 
 
