@@ -1,40 +1,62 @@
 
 {% load static %}
 <div class="box">
-    <a data-toggle="modal" data-target="#modal{{ e.title }}" class="image fit"><img src="/media/{{ e.photo_cover }}" alt="image example of {{ e.title }} template" /></a>
+    <a data-toggle="modal" data-target="#modal{{ e.title }}" class="image fit" id="cover">
+        <img class = " template-image-cover hover" src="/media/{{ e.photo_cover }}" alt="image example of {{ e.title }} template" />
+        <p class="image-text">
+            {{ e.description }}
+            <br>
+            <br>
+        </p>
+    </a>
         <div class="inner">
-            <h3>{{e.title}}</h3>
-            <p>{{ e.description }}</p>
-            <a data-toggle="modal" data-target="#modal{{ e.title }}" class="button fit">Buy</a>
+            <div class = "row">
+                    <div class="col-md-6 align-left detail">
+                        <h3>{{e.title}}</h3>
+                    </div>
+                    <div class="col-md-6 align-right detail">
+                        <h3>{{ e.price }}</h3>
+                    </div>
+
+            </div>
         </div>
 </div>
 
 
 <!-- Modal for template detail-->
 <div class="modal fade" id="modal{{ e.title }}" tabindex="-1" role="dialog" aria-labelledby="modal{{ e.title }}" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <div class="row">
-            <div class="col-md-6 col-md-offset-1 image fit"><img src="/media/{{ e.photo_cover }}" alt="image example of {{ e.title }} template" /></div>
-            <div class="col-md-4">
-                <h1>{{ e.title }}</h1>
-                <h4 class = "price">{{ e.price }}</h4>
-            </div>
+  <div class="vertical-alignment-helper">
+    <div class="modal-dialog modal-lg vertical-align-center" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+              <div class="row">
+                <div class="col-md-6 col-md-offset-1 image fit"><img class = " template-image" src="/media/{{ e.photo_cover }}" alt="image example of {{ e.title }} template" /></div>
+                <div class="col-md-6">
+                    <h1 class = "title">{{ e.title }}</h1>
+                    <h4 class = "price">{{ e.price }}</h4>
+                    <br>
+                    <p>{{ e.description }}</p>
+                    <br>
+                    <a class="link" href="{{ e.url }}" target="_blank">Go to Live Demo >></a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-md-offset-1 gallery">
+                    <a><img class="thumbnail zoom" src="http://placehold.it/100x60"></a>
+                    <a><img class="thumbnail zoom" src="http://placehold.it/100x60"></a>
+                    <a><img class="thumbnail zoom" src="http://placehold.it/100x60"></a>
+                    <a><img class="thumbnail zoom" src="http://placehold.it/100x60"></a>
+                    <br><br>
+                    <a><img class="thumbnail zoom" src="http://placehold.it/100x60"></a>
+                    <a><img class="thumbnail zoom"src="http://placehold.it/100x60"></a>
+                </div>
+                <div class="col-md-6">
+                    <a class="btn btn-modal btn-block" href="#">I want this</a>
+                </div>
+              </div>
           </div>
-          <div class="row">
-            <div class="col-md-6 col-md-offset-3">.col-md-6 .col-md-offset-3</div>
-          </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+
+        </div>
     </div>
   </div>
 </div>

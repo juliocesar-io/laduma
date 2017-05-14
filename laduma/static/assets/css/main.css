@@ -715,6 +715,93 @@
 				border-top: 0;
 			}
 
+/* Button */
+
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"],
+	button,
+	.button {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		background-color: #00B57B;
+		border-radius: 4px;
+		border: 0;
+		color: #ffffff !important;
+		cursor: pointer;
+		display: inline-block;
+		font-weight: 400;
+		height: 2.85em;
+		line-height: 2.95em;
+		padding: 0 1.5em;
+		text-align: center;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+
+		input[type="submit"]:hover,
+		input[type="reset"]:hover,
+		input[type="button"]:hover,
+		button:hover,
+		.button:hover {
+			background-color: #00B57B;
+		}
+
+		input[type="submit"]:active,
+		input[type="reset"]:active,
+		input[type="button"]:active,
+		button:active,
+		.button:active {
+			background-color: #00B57B;
+		}
+
+		input[type="submit"].icon,
+		input[type="reset"].icon,
+		input[type="button"].icon,
+		button.icon,
+		.button.icon {
+			padding-left: 1.35em;
+		}
+
+			input[type="submit"].icon:before,
+			input[type="reset"].icon:before,
+			input[type="button"].icon:before,
+			button.icon:before,
+			.button.icon:before {
+				margin-right: 0.5em;
+			}
+
+		input[type="submit"].fit,
+		input[type="reset"].fit,
+		input[type="button"].fit,
+		button.fit,
+		.button.fit {
+			display: block;
+			margin: 0 0 1em 0;
+			width: 100%;
+		}
+
+		input[type="submit"].small,
+		input[type="reset"].small,
+		input[type="button"].small,
+		button.small,
+		.button.small {
+			font-size: 0.8em;
+		}
+
+		input[type="submit"].big,
+		input[type="reset"].big,
+		input[type="button"].big,
+		button.big,
+		.button.big {
+			font-size: 1.35em;
+		}
 
 
 /* Poptrox */
@@ -1041,9 +1128,116 @@
 
 		}
 /* Template */
+	.title{
+		font-weight: 400;
+	}
 	.price {
-		color: #00C853;
+		color: #00B57B;
 		font-weight: 100;
 		font-style: italic;
 
 	}
+	.link {
+		color: #311B92;
+	}
+
+	.vertical-alignment-helper {
+		display:table;
+		height: 100%;
+		width: 70%;
+		position: fixed;
+		left: 15%;
+		pointer-events:none; /* This makes sure that we can still click outside of the modal to close it */
+	}
+
+	.vertical-align-center {
+		/* To center vertically */
+		display: table-cell;
+		vertical-align: middle;
+		pointer-events:none;
+	}
+
+	.modal-content {
+		/* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+		width:inherit;
+		height:inherit;
+		/* To center horizontally */
+		margin: 0 auto;
+		pointer-events: all;
+	}
+
+	.btn-modal{
+	  color: #ffffff;
+	  background-color: #00B57B;
+	  border-color: #00B57B;
+	}
+
+/**gallery margins**/
+
+	.zoom {
+		-webkit-transition: all 0.35s ease-in-out;
+		-moz-transition: all 0.35s ease-in-out;
+		transition: all 0.35s ease-in-out;
+		cursor: -webkit-zoom-in;
+		cursor: -moz-zoom-in;
+		cursor: zoom-in;
+	}
+
+	.zoom:hover,
+	.zoom:active,
+	.zoom:focus {
+	/**adjust scale to desired size,
+	add browser prefixes**/
+		-ms-transform: scale(2.5);
+		-moz-transform: scale(2.5);
+		-webkit-transform: scale(2.5);
+		-o-transform: scale(2.5);
+		transform: scale(2.5);
+		position:relative;
+		z-index:100;
+	}
+
+	/**To keep upscaled images visible on mobile,
+	increase left & right margins a bit**/
+	@media only screen and (max-width: 768px) {
+
+		/**TIP: Easy escape for touch screens,
+		give gallery's parent container a cursor: pointer.**/
+		.DivName {cursor: pointer}
+		}
+	.template-image-cover:hover{
+		opacity: 0.2;
+
+	}
+	.detail h3{
+		font-weight: 200;
+		color: white;
+	}
+
+	.template-image-cover {
+	  height: 400px;
+	  width: 100%;
+	  object-fit: cover; /*magic*/
+	}
+
+	.template-image {
+	  height: 400px;
+	  width: 100%;
+	  object-fit: cover; /*magic*/
+	}
+
+	#cover .image-text {
+		position:relative;
+		top:-350px;
+		left:0px;
+		color: white;
+		font-weight: 200;
+		visibility:hidden;
+	}
+
+	#cover:hover .image-text {
+		visibility:visible;
+	}
+
+
+
