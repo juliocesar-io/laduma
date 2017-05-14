@@ -171,7 +171,7 @@
 
 	h1, h2, h3, h4, h5, h6 {
 		color: #fff;
-		font-weight: 400;
+		font-weight: 100;
 		line-height: 1.5;
 		margin: 0 0 1em 0;
 	}
@@ -1401,3 +1401,10 @@
 			}
 
 		}
+/* Template */
+	.price {
+		color: #00C853;
+		font-weight: 100;
+		font-style: italic;
+
+	}
