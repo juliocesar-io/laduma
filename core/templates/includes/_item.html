@@ -10,7 +10,7 @@
             <span class="button template-btn btn-large" href="{{ e.url }}" target="_blank">DEMO <i class="material-icons play">play_arrow</i></span>
             <br>
             <br>
-            <span class="button template-btn btn-large" data-toggle="modal" data-target="#modal{{ e.title }}">MORE INFO</span>
+            <span class="button template-btn btn-large" data-toggle="modal" data-target="#modal-{{ e.id }}">MORE INFO</span>
 
         </p>
     </a>
@@ -29,7 +29,7 @@
 
 
 <!-- Modal for template detail-->
-<div class="modal fade" id="modal{{ e.title }}" tabindex="-1" role="dialog" aria-labelledby="modal{{ e.title }}" aria-hidden="true">
+<div class="modal fade" id="modal-{{ e.id }}" tabindex="-1" role="dialog" aria-labelledby="modal{{ e.title }}" aria-hidden="true">
   <div class="vertical-alignment-helper">
     <div class="modal-dialog modal-lg vertical-align-center" role="document">
         <div class="modal-content">

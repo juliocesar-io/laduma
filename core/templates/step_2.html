@@ -17,8 +17,8 @@
 
             {% for e in p %}
           <p>
-            <input type="checkbox" id="{{ e.name }} " />
-            <label for="{{ e.name }} ">{{ e.name }}  - {{ e.price }}</label>
+            <input onclick="get()" name="package" type="checkbox" id="{{ e.name }}" value="{{ e.price }}" />
+            <label for="{{ e.name }}">{{ e.name }}  - {{ e.price }}</label>
           </p>
             {% endfor %}
         </form>
@@ -26,9 +26,37 @@
 
         </div>
 
-    <p style="float: right;">Total: {{ t.price }} </p>
+    <p id="total" style="float: right;">{{ t.price }} </p>
 
     </div>
 </div>
+
+    <script>
+        var t = document.getElementById('total');
+         var numb2 = t.innerText.match(/\d/g);
+            numb2 = numb2.join("")/100;
+
+
+    function get() {
+
+            var p = [];
+
+            [].forEach.call(document.querySelectorAll('input[name="package"]:checked'), function(cb) {
+
+               var numb = cb.value.match(/\d/g);
+               numb = numb.join("")/100;
+               p.push(numb)
+
+            });
+
+
+
+            t.innerHTML = p.reduce(function(a, b) { return a + b; }, 0) + numb2;
+
+
+    }
+
+
+    </script>
 
 {% endblock %}

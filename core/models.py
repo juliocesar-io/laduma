@@ -16,7 +16,8 @@ class Package(models.Model):
     """packages: aditional options for templates"""
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=255)
-    price = MoneyField(max_digits=10, decimal_places=2, default_currency='MXN')
+    price = MoneyField(max_digits=10, decimal_places=0, default_currency='MXN')
+
 
     def __unicode__(self):
         return unicode(self.name)
@@ -28,7 +29,7 @@ class Template(models.Model):
     description = models.CharField(max_length=100)
     photo_cover = models.FileField(upload_to='laduma/media/covers')
     url = models.URLField()
-    price = MoneyField(max_digits=10, decimal_places=2, default_currency='MXN')
+    price = MoneyField(max_digits=10, decimal_places=0, default_currency='MXN')
     packages = models.ManyToManyField(Package)
 
     def __unicode__(self):
