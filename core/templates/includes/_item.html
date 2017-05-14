@@ -1,7 +1,14 @@
 
 {% load static %}
 <div class="box">
-    <a data-toggle="modal" data-target="#modal{{ e.title }}" class="image fit"><img src="/media/{{ e.photo_cover }}" alt="image example of {{ e.title }} template" /></a>
+    <a data-toggle="modal" data-target="#modal{{ e.title }}" class="image fit" id="cover">
+        <img class = " template-image-cover hover" src="/media/{{ e.photo_cover }}" alt="image example of {{ e.title }} template" />
+        <p class="image-text">
+            {{ e.description }}
+            <br>
+            <br>
+        </p>
+    </a>
         <div class="inner">
             <div class = "row">
                     <div class="col-md-6 align-left detail">
@@ -23,7 +30,7 @@
         <div class="modal-content">
           <div class="modal-body">
               <div class="row">
-                <div class="col-md-6 col-md-offset-1 image fit"><img src="/media/{{ e.photo_cover }}" alt="image example of {{ e.title }} template" /></div>
+                <div class="col-md-6 col-md-offset-1 image fit"><img class = " template-image" src="/media/{{ e.photo_cover }}" alt="image example of {{ e.title }} template" /></div>
                 <div class="col-md-6">
                     <h1 class = "title">{{ e.title }}</h1>
                     <h4 class = "price">{{ e.price }}</h4>
@@ -44,7 +51,7 @@
                     <a><img class="thumbnail zoom"src="http://placehold.it/100x60"></a>
                 </div>
                 <div class="col-md-6">
-                    <button type="button" class="btn btn-modal btn-block">I want this</button>
+                    <a class="btn btn-modal btn-block" href="#">I want this</a>
                 </div>
               </div>
           </div>

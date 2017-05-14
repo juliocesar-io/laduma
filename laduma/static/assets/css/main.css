@@ -1479,10 +1479,39 @@
 		give gallery's parent container a cursor: pointer.**/
 		.DivName {cursor: pointer}
 		}
-	.box:hover{
+	.template-image-cover:hover{
+		opacity: 0.2;
 
 	}
 	.detail h3{
 		font-weight: 200;
 		color: white;
 	}
+
+	.template-image-cover {
+	  height: 400px;
+	  width: 100%;
+	  object-fit: cover; /*magic*/
+	}
+
+	.template-image {
+	  height: 400px;
+	  width: 100%;
+	  object-fit: cover; /*magic*/
+	}
+
+	#cover .image-text {
+		position:relative;
+		top:-350px;
+		left:0px;
+		color: white;
+		font-weight: 200;
+		visibility:hidden;
+	}
+
+	#cover:hover .image-text {
+		visibility:visible;
+	}
+
+
+
