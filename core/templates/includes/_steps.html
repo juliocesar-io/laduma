@@ -1,0 +1,51 @@
+
+
+
+{% if step_1 %}
+
+<ul class="steps">
+    <li class="step step--incomplete step--active">
+        <span class="step__icon"></span>
+        <span class="step__label">Chosse template</span>
+    </li>
+    <li class="step step--incomplete step--inactive">
+        <span class="step__icon"></span>
+        <span class="step__label">Add Packages</span>
+    </li>
+    <li class="step step--incomplete step--inactive">
+        <span class="step__icon"></span>
+        <span class="step__label">Contact</span>
+    </li>
+</ul>
+
+{% elif step_2 %}
+<ul class="steps">
+    <li class="step step--incomplete step--complete">
+        <span class="step__icon"></span>
+        <span class="step__label">Chosse template</span>
+    </li>
+    <li class="step step--incomplete step--active">
+        <span class="step__icon"></span>
+        <span class="step__label">Add Packages</span>
+    </li>
+    <li class="step step--incomplete step--inactive">
+        <span class="step__icon"></span>
+        <span class="step__label">Contact</span>
+    </li>
+</ul>
+{% elif step_3 %}
+<ul class="steps">
+    <li class="step step--incomplete step--complete">
+        <span class="step__icon"></span>
+        <span class="step__label">Chosse template</span>
+    </li>
+    <li class="step step--incomplete step--complete">
+        <span class="step__icon"></span>
+        <span class="step__label">Add Packages</span>
+    </li>
+    <li class="step step--incomplete step--active">
+        <span class="step__icon"></span>
+        <span class="step__label">Contact</span>
+    </li>
+</ul>
+{% endif %}

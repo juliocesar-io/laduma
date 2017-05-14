@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Main -->
+<div id="main">
+
+    <div class="inner">
+
+    {% include 'includes/_steps.html' %}
+
+        <br>
+        <br>
+        <div class="thumbnails">
+         {% for e in t %}
+         {% include 'includes/_item.html' %}
+         {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

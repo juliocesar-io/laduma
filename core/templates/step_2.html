@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Main -->
+<div id="main">
+
+    <div class="inner">
+
+    {% include 'includes/_steps.html' %}
+
+        <br>
+        <div class="thumbnails">
+
+        <form action="#">
+
+            {% for e in p %}
+          <p>
+            <input type="checkbox" id="{{ e.name }} " />
+            <label for="{{ e.name }} ">{{ e.name }}  - {{ e.price }}</label>
+          </p>
+            {% endfor %}
+        </form>
+
+
+        </div>
+
+    <p style="float: right;">Total: {{ t.price }} </p>
+
+    </div>
+</div>
+
+{% endblock %}
