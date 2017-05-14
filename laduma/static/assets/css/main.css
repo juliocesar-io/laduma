@@ -929,7 +929,7 @@
 		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		background-color: #70c7be;
+		background-color: #00B57B;
 		border-radius: 4px;
 		border: 0;
 		color: #ffffff !important;
@@ -949,7 +949,7 @@
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
-			background-color: #82cec6;
+			background-color: #00B57B;
 		}
 
 		input[type="submit"]:active,
@@ -957,7 +957,7 @@
 		input[type="button"]:active,
 		button:active,
 		.button:active {
-			background-color: #5ec0b6;
+			background-color: #00B57B;
 		}
 
 		input[type="submit"].icon,
@@ -1406,11 +1406,83 @@
 		font-weight: 400;
 	}
 	.price {
-		color: #00C853;
+		color: #00B57B;
 		font-weight: 100;
 		font-style: italic;
 
 	}
 	.link {
 		color: #311B92;
+	}
+
+	.vertical-alignment-helper {
+		display:table;
+		height: 100%;
+		width: 70%;
+		position: fixed;
+		left: 15%;
+		pointer-events:none; /* This makes sure that we can still click outside of the modal to close it */
+	}
+
+	.vertical-align-center {
+		/* To center vertically */
+		display: table-cell;
+		vertical-align: middle;
+		pointer-events:none;
+	}
+
+	.modal-content {
+		/* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+		width:inherit;
+		height:inherit;
+		/* To center horizontally */
+		margin: 0 auto;
+		pointer-events: all;
+	}
+
+	.btn-modal{
+	  color: #ffffff;
+	  background-color: #00B57B;
+	  border-color: #00B57B;
+	}
+
+/**gallery margins**/
+
+	.zoom {
+		-webkit-transition: all 0.35s ease-in-out;
+		-moz-transition: all 0.35s ease-in-out;
+		transition: all 0.35s ease-in-out;
+		cursor: -webkit-zoom-in;
+		cursor: -moz-zoom-in;
+		cursor: zoom-in;
+	}
+
+	.zoom:hover,
+	.zoom:active,
+	.zoom:focus {
+	/**adjust scale to desired size,
+	add browser prefixes**/
+		-ms-transform: scale(2.5);
+		-moz-transform: scale(2.5);
+		-webkit-transform: scale(2.5);
+		-o-transform: scale(2.5);
+		transform: scale(2.5);
+		position:relative;
+		z-index:100;
+	}
+
+	/**To keep upscaled images visible on mobile,
+	increase left & right margins a bit**/
+	@media only screen and (max-width: 768px) {
+
+		/**TIP: Easy escape for touch screens,
+		give gallery's parent container a cursor: pointer.**/
+		.DivName {cursor: pointer}
+		}
+	.box:hover{
+
+	}
+	.detail h3{
+		font-weight: 200;
+		color: white;
 	}
