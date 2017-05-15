@@ -11,24 +11,66 @@
     {% include 'includes/_steps.html' %}
 
         <br>
-        <div class="thumbnails">
+        <div  style="width: 900px; padding-top: 60px" class="container">
 
-        <form action="#">
 
-            {% for e in p %}
-          <p>
-            <input onclick="get()" name="package" type="checkbox" id="{{ e.name }}" value="{{ e.price }}" />
-            <label for="{{ e.name }}">{{ e.name }}  - {{ e.price }}</label>
-          </p>
-            {% endfor %}
-        </form>
+        <div class="row">
+
+            <div class="col">
+                  <h4>  <i class="material-icons">color_lens</i> Colors</h4>
+               <div class='flex'>
+                   <p>Primary</p>
+                <label class='color-picker'>
+                  <input  class='color' type='color' id="boo-1"  value="#ddd767" tabindex='-1'/>
+                  <input  class='hex'   type='text'  id="color-1" value="#ddd767" onfocus="this.select()" />
+                </label>
+                </div>
+                <hr>
+                <div class='flex'>
+                     <p>Accent</p>
+                <label class='color-picker'>
+                  <input class='color' type='color' id="boo-2"  value="#1bbddd" tabindex='-1'/>
+                  <input class='hex'   type='text'  id="color-2" value="#1bbddd" onfocus="this.select()" />
+                </label>
+                </div>
+                <hr>
+                <div class='flex'>
+                     <p>Other</p>
+                <label class='color-picker'>
+                  <input class='color' type='color' id="boo-3"  value="#dd735f" tabindex='-1'/>
+                  <input class='hex'   type='text'  id="color-3" value="#dd735f" onfocus="this.select()" />
+                </label>
+                </div>
+
+            </div>
+            <div style="text-align: right" class="col">
+            <h4>  <i class="material-icons">extension</i> Packages</h4>
+                <br>
+
+                <form action="#">
+
+                    {% for e in p %}
+                  <p>
+                    <input onclick="get()" name="package" type="checkbox" id="{{ e.name }}" value="{{ e.price }}" />
+                    <label for="{{ e.name }}">{{ e.name }}  - {{ e.price }}</label>
+                  </p>
+                    {% endfor %}
+                </form>
+                <hr>
+
+            Total: <p id="total" style="float: right;"> {{ t.price }} </p>
+            </div>
+            <a style="margin-top: 240px" href="/step3" class="btn btn-success">Next</a>
+
+
 
 
         </div>
 
-    <p id="total" style="float: right;">{{ t.price }} </p>
+        </div>
 
     </div>
+
 </div>
 
     <script>
