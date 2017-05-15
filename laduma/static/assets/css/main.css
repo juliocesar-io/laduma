@@ -892,22 +892,51 @@
 		-ms-justify-content: center;
 		justify-content: center;
 		padding: 8em 4em 6em 4em;
-		height: 200px;
+		height: 500px;
 		border-top:0;
 		position: relative;
 		text-align: center;
 		overflow: hidden;
+		background-color: grey; /*Fallback colour*/
+		background-image: url("images/heroimage.jpg");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
 	}
+		#banner .logo {
+			background-image: url("images/logo.png");
+			background-repeat: no-repeat;
+			background-size: cover;
+			z-index: 3;
+			width: 100px;
+			height: 34px;
+			position: absolute;
+			left: 20px;
+			top: 20px;
+
+		}
+		#banner .nav {
+			background-image: url("images/nav.png");
+			background-repeat: no-repeat;
+			background-size: cover;
+			z-index: 3;
+			width: 100px;
+			height: 34px;
+			position: absolute;
+			right: 20px;
+			top: 20px;
+		}
 
 		#banner .inner {
 			text-align: center;
 			position: relative;
 			z-index: 2;
+			margin: auto;
 		}
 
 		#banner h1 {
 			color: #fff;
-			font-size: 5em;
+			font-size: 3em;
 			font-weight: 400;
 			font-family: 'Passion One', cursive;
 			margin: 0;
@@ -916,7 +945,7 @@
 			@media screen and (max-width: 980px) {
 
 				#banner h1 {
-					font-size: 5em;
+					font-size: 2em;
 				}
 
 			}
@@ -924,7 +953,7 @@
 			@media screen and (max-width: 736px) {
 
 				#banner h1 {
-					font-size: 3em;
+					font-size: 2em;
 				}
 
 			}
@@ -933,12 +962,15 @@
 			color: rgba(255, 255, 255, 0.85);
 			font-size: 1.5em;
 			font-weight: 300;
+			margin-top: 30px;
+			width: 700px;
 		}
 
 			@media screen and (max-width: 980px) {
 
 				#banner p {
-					font-size: 1.5em;
+					font-size: 1em;
+					width: 500px;
 				}
 
 			}
@@ -946,7 +978,8 @@
 			@media screen and (max-width: 480px) {
 
 				#banner p {
-					font-size: 1.25em;
+					font-size: 1em;
+					width: 300px;
 				}
 
 			}
