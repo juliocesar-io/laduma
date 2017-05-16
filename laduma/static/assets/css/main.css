@@ -1133,8 +1133,9 @@
 
 	#footer {
 		padding: 4em 0 2em 0;
-		background-color: #1b1b1f;
+		background-color: #2e2e2e;
 		text-align: center;
+		color: rgba(241,241,241,0.3);
 	}
 
 		#footer .inner {
@@ -1159,7 +1160,7 @@
 			}
 
 		#footer .copyright {
-			color: rgba(255, 255, 255, 0.5);
+			color: rgba(241, 241, 241, 0.8);
 			font-size: 0.9em;
 			margin: 0 0 2em 0;
 			padding: 0;
