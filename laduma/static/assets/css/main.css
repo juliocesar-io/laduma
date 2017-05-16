@@ -893,7 +893,7 @@
 		-ms-justify-content: center;
 		justify-content: center;
 		padding: 8em 4em 6em 4em;
-		height: 500px;
+		height: 600px;
 		border-top:0;
 		position: relative;
 		text-align: center;
@@ -919,8 +919,8 @@
 		#banner .logo:hover {
 			outline: 2px solid rgb(241,241,241);
 			outline-offset: 5px;
-			transition: 0.2s;
-			-webkit-transition:0.2s
+			transition: 0.1s;
+			-webkit-transition:0.1s
 		}
 		#banner .nav {
 			background-image: url("images/nav.png");
@@ -932,6 +932,12 @@
 			position: absolute;
 			right: 40px;
 			top: 40px;
+		}
+		#banner .nav:hover {
+			outline: 2px solid rgb(241,241,241);
+			outline-offset: 5px;
+			transition: 0.1s;
+			-webkit-transition:0.1s
 		}
 
 		#banner .inner {
