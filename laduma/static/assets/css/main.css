@@ -876,6 +876,7 @@
 
 		}
 
+
 /* Banner */
 
 	#banner {
@@ -911,9 +912,15 @@
 			width: 100px;
 			height: 34px;
 			position: absolute;
-			left: 20px;
-			top: 20px;
+			left: 40px;
+			top: 40px;
 
+		}
+		#banner .logo:hover {
+			outline: 2px solid rgb(241,241,241);
+			outline-offset: 5px;
+			transition: 0.2s;
+			-webkit-transition:0.2s
 		}
 		#banner .nav {
 			background-image: url("images/nav.png");
@@ -923,8 +930,8 @@
 			width: 100px;
 			height: 34px;
 			position: absolute;
-			right: 20px;
-			top: 20px;
+			right: 40px;
+			top: 40px;
 		}
 
 		#banner .inner {
