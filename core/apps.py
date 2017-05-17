@@ -31,7 +31,9 @@ class SuitConfig(DjangoSuitConfig):
             ChildItem('Dashboard', url='/admin/dash/'),
             ChildItem(model='core.order'),
             ChildItem(model='core.client'),
-
-
-        ]),
+        ], icon='fa fa-line-chart'),
+        ParentItem('Admin', children=[
+            ChildItem(model='core.template'),
+            ChildItem(model='core.package'),
+        ], icon='fa fa-cog'),
     )

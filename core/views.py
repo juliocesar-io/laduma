@@ -123,3 +123,14 @@ def dashboard(request):
 
     template = 'admin/index.html'
     return render(request, template, context)
+
+
+def invoice(request):
+
+
+    context = admin.site.each_context(request)
+    context.update({
+    })
+
+    template = 'invoice.html'
+    return render(request, template, context)

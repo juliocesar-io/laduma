@@ -15,8 +15,19 @@ class ClientAdmin(admin.ModelAdmin):
     list_display = ['id','name', 'mail']
 
 
-admin.site.register(Template)
-admin.site.register(Package)
+class TemplateAdmin(admin.ModelAdmin):
+    list_display = ['title','description', 'photo_cover', 'url', 'get_packages', 'price']
+
+    def get_packages(self, obj):
+     return obj.packages.all()
+
+
+class PackageAdmin(admin.ModelAdmin):
+    list_display = ['name','description', 'price']
+
+
+admin.site.register(Template, TemplateAdmin)
+admin.site.register(Package, PackageAdmin)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(Client, ClientAdmin)
 # Register your models here.
