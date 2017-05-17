@@ -4,6 +4,7 @@ from django.db import models
 from djmoney.models.fields import MoneyField
 
 
+
 class Client(models.Model):
     """client info"""
     name = models.CharField(max_length=100)
@@ -37,8 +38,9 @@ class Template(models.Model):
 
 class Order(models.Model):
     """a client order"""
-    template = models.OneToOneField(Template)
-    client = models.OneToOneField(Client)
+    template = models.ForeignKey(Template)
+    client = models.ForeignKey(Client)
+    packages = models.ManyToManyField(Package)
 
     def __unicode__(self):
         return unicode(self.id)

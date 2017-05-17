@@ -6,4 +6,6 @@ from django.contrib import admin
 
 admin.site.register(Template)
 admin.site.register(Package)
+admin.site.register(Order)
+admin.site.register(Client)
 # Register your models here.

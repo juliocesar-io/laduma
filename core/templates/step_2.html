@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load functions %}
+
 
 {% block content %}
+
+    <style>
+        #id_step1-packages, #id_step1-template{
+            display: none;
+        }
+
+    </style>
 
 <!-- Main -->
 <div id="main">
@@ -11,7 +20,7 @@
     {% include 'includes/_steps.html' %}
 
         <br>
-        <div  style="width: 900px; padding-top: 60px" class="container">
+        <div   class="container inner">
 
 
         <div class="row">
@@ -19,26 +28,23 @@
             <div class="col">
                   <h4>  <i class="material-icons">color_lens</i> Colors</h4>
                <div class='flex'>
-                   <p>Primary</p>
                 <label class='color-picker'>
                   <input  class='color' type='color' id="boo-1"  value="#ddd767" tabindex='-1'/>
-                  <input  class='hex'   type='text'  id="color-1" value="#ddd767" onfocus="this.select()" />
+                  <input placeholder="Primary"  class='hex'   type='text'  id="color-1" value="" onfocus="this.select()" />
                 </label>
                 </div>
-                <hr>
+
                 <div class='flex'>
-                     <p>Accent</p>
                 <label class='color-picker'>
                   <input class='color' type='color' id="boo-2"  value="#1bbddd" tabindex='-1'/>
-                  <input class='hex'   type='text'  id="color-2" value="#1bbddd" onfocus="this.select()" />
+                  <input  placeholder="Accent"  class='hex'   type='text'  id="color-2" value="" onfocus="this.select()" />
                 </label>
                 </div>
-                <hr>
+
                 <div class='flex'>
-                     <p>Other</p>
                 <label class='color-picker'>
                   <input class='color' type='color' id="boo-3"  value="#dd735f" tabindex='-1'/>
-                  <input class='hex'   type='text'  id="color-3" value="#dd735f" onfocus="this.select()" />
+                  <input  placeholder="Other" class='hex'   type='text'  id="color-3" value="" onfocus="this.select()" />
                 </label>
                 </div>
 
@@ -47,31 +53,37 @@
             <h4>  <i class="material-icons">extension</i> Packages</h4>
                 <br>
 
-                <form action="#">
+
+
+
 
                     {% for e in p %}
                   <p>
-                    <input onclick="get()" name="package" type="checkbox" id="{{ e.name }}" value="{{ e.price }}" />
-                    <label for="{{ e.name }}">{{ e.name }}  - {{ e.price }}</label>
+                    <input onclick="get(this)" name="package" type="checkbox" id="{{ e.id }}" value="{{ e.price }}" />
+                    <label for="{{ e.id }}">{{ e.name }}  - {% convert_currency e.price.amount "MXN" request.COOKIES.currency  %} </label>
                   </p>
                     {% endfor %}
-                </form>
+
                 <hr>
 
-            Total: <p id="total" style="float: right;"> {{ t.price }} </p>
+            <p id="total" style="float: right;"> {% convert_currency t.price.amount "MXN" request.COOKIES.currency  %} </p>
             </div>
-            <a style="margin-top: 240px" href="/step3" class="btn btn-success">Next</a>
-
-
-
 
         </div>
 
+        <div style="float: right;" class="row">
+            {% include "includes/form_step.html" %}
         </div>
+        </div>
+
 
     </div>
+</div>
 
 </div>
+
+
+
 
     <script>
         var t = document.getElementById('total');
@@ -79,15 +91,29 @@
             numb2 = numb2.join("")/100;
 
 
-    function get() {
+    function get(i) {
+
+            console.log(i);
+
+            var cbId = i.id.toString();
+
+            var cbForm = $("input[value=" + cbId + "][name='step1-packages']");
+
+            if (!i.checked) {
+                    cbForm.prop('checked', false);
+                } else {
+                    cbForm.prop('checked', true);
+            }
 
             var p = [];
 
             [].forEach.call(document.querySelectorAll('input[name="package"]:checked'), function(cb) {
 
-               var numb = cb.value.match(/\d/g);
-               numb = numb.join("")/100;
-               p.push(numb)
+                var numb = cb.value.match(/\d/g);
+                numb = numb.join("")/100;
+                p.push(numb)
+
+                console.log(cb.id);
 
             });
 
@@ -100,5 +126,11 @@
 
 
     </script>
+
+   {% block extra-js %}
+       <script src="{% static 'assets/js/colors2.js' %}"></script>
+   {% endblock %}
+
+
 
 {% endblock %}

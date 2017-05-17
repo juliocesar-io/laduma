@@ -730,10 +730,10 @@
 		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		background-color: #00B57B;
+		background-color: #c29b00;
 		border-radius: 4px;
 		border: 0;
-		color: #ffffff !important;
+		color: #ffffff;
 		cursor: pointer;
 		display: inline-block;
 		font-weight: 400;
@@ -750,7 +750,7 @@
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
-			background-color: #00B57B;
+			background-color: #c29b00;
 		}
 
 		input[type="submit"]:active,
@@ -758,7 +758,7 @@
 		input[type="button"]:active,
 		button:active,
 		.button:active {
-			background-color: #00B57B;
+			background-color: #c29b00;
 		}
 
 		input[type="submit"].icon,
@@ -1165,7 +1165,7 @@
 		font-weight: 400;
 	}
 	.price {
-		color: #00B57B;
+		color: #c29b00;
 		font-weight: 100;
 		font-style: italic;
 
@@ -1201,8 +1201,8 @@
 
 	.btn-modal{
 	  color: #ffffff;
-	  background-color: #00B57B;
-	  border-color: #00B57B;
+	  background-color: #c29b00;
+	  border-color: #c29b00;
 	}
 
 /**gallery margins**/
@@ -1257,9 +1257,9 @@
 	}
 
 	#cover .image-text {
-		position:relative;
-		top:-300px;
-		left:0px;
+		position:absolute;
+        left: 200px;
+        top: 140px;
 		color: white;
 		font-weight: 200;
 		visibility:hidden;
