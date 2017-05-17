@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.db import models
+
+from moneyed import Money
 from djmoney.models.fields import MoneyField
 
 
@@ -41,6 +43,20 @@ class Order(models.Model):
     template = models.ForeignKey(Template)
     client = models.ForeignKey(Client)
     packages = models.ManyToManyField(Package)
+    is_deal = models.BooleanField(default=False)
+
+    def get_total_amount_order(self):
+        tp = self.template.price
+
+        t = 0
+
+        for p in self.packages.all():
+            t = t + p.price
+
+        total = tp + t
+
+        return total
+
 
     def __unicode__(self):
         return unicode(self.id)

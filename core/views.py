@@ -7,6 +7,8 @@ from .forms import Step1Form, Step2Form
 from formtools.wizard.views import  CookieWizardView
 from django.forms.models import construct_instance
 from django.views.decorators.http import require_POST
+from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib import admin
 
 FORMS = [("step1", Step1Form),
          ("step2", Step2Form)]
@@ -92,3 +94,32 @@ def set_currency(request, currency):
     reponse.set_cookie('currency', currency )
 
     return reponse
+
+
+@staff_member_required
+def dashboard(request):
+
+
+    c = Client.objects.all().count
+    o = Order.objects.filter(is_deal=True)
+    o_c = Order.objects.all().coun
+    d = Order.objects.filter(is_deal=True).count
+
+    income = 0
+
+    for oi in o:
+        income = income + oi.get_total_amount_order()
+
+
+
+
+    context = admin.site.each_context(request)
+    context.update({
+        'c':c,
+        'o_c': o_c,
+        'd': d,
+        'income': income,
+    })
+
+    template = 'admin/index.html'
+    return render(request, template, context)

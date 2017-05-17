@@ -16,6 +16,8 @@ class SuitConfig(DjangoSuitConfig):
     # Menu and header layout - horizontal or vertical
     layout = 'vertical'
 
+    menu_show_home = False
+
     # Set default list per page
     list_per_page = 20
 
@@ -26,8 +28,9 @@ class SuitConfig(DjangoSuitConfig):
     #: :type: list of suit.menu.ParentItem
     menu = (
         ParentItem('Sales', children=[
-            ChildItem(model='core.client'),
+            ChildItem('Dashboard', url='/admin/dash/'),
+            ChildItem(model='core.order'),
 
-            # ChildItem('Custom view', url='/admin/custom/'),
+
         ]),
     )
