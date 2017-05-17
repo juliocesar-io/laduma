@@ -29,7 +29,7 @@
                     <div class="card">
                     <div class="card-header">
                         Invoice
-                        <strong>#</strong>
+                        <strong>000{{ order.id }}</strong>
                         <a href="#" class="btn btn-sm btn-info float-right" onclick="javascript:window.print();"><i class="fa fa-print"></i> Print</a>
 
                     </div>
@@ -51,22 +51,21 @@
                             <div class="col-sm-4">
                                 <h6 class="mb-1">To:</h6>
                                 <div>
-                                    <strong>{{ client }}</strong>
+                                    <strong>{{ client.name }}</strong>
                                 </div>
-                                <div>Email: {client.mail}</div>
-                                <div>Phone: +48 123 456 789</div>
+                                <div>Email: {{client.mail}}</div>
                             </div>
                             <!--/.col-->
 
                             <div class="col-sm-4">
                                 <h6 class="mb-1">Details:</h6>
                                 <div>Invoice
-                                    <strong>#90-98792</strong>
+                                    <strong>#000{{ order.id }}</strong>
                                 </div>
-                                <div>{DATE}</div>
+                                <div>{{ order.created_date }}</div>
                                 <div>Account Name: Laduma</div>
                                 <div>
-                                    <strong>SWIFT code: 99 8888 7777 6666 5555</strong>
+                                    <strong>Template: {{ order.template.title }}</strong>
                                 </div>
                             </div>
                             <!--/.col-->
@@ -87,38 +86,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for package in order.packages.all %}
+
                                     <tr>
+                                        <td class="center"> {{ forloop.counter }}</td>
+                                        <td class="left">{{ package.name }}</td>
+                                        <td class="left">{{ package.description }}</td>
                                         <td class="center">1</td>
-                                        <td class="left">Origin License</td>
-                                        <td class="left">Extended License</td>
-                                        <td class="center">1</td>
-                                        <td class="right">$999,00</td>
-                                        <td class="right">$999,00</td>
+                                        <td class="right">${{ package.price }}</td>
+                                        <td class="right">${{ package.price }}</td>
                                     </tr>
-                                    <tr>
-                                        <td class="center">2</td>
-                                        <td class="left">Custom Services</td>
-                                        <td class="left">Instalation and Customization (cost per hour)</td>
-                                        <td class="center">20</td>
-                                        <td class="right">$150,00</td>
-                                        <td class="right">$3.000,00</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="center">3</td>
-                                        <td class="left">Hosting</td>
-                                        <td class="left">1 year subcription</td>
-                                        <td class="center">1</td>
-                                        <td class="right">$499,00</td>
-                                        <td class="right">$499,00</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="center">4</td>
-                                        <td class="left">Platinum Support</td>
-                                        <td class="left">1 year subcription 24/7</td>
-                                        <td class="center">1</td>
-                                        <td class="right">$3.999,00</td>
-                                        <td class="right">$3.999,00</td>
-                                    </tr>
+                                    {% endfor %}
+
                                 </tbody>
                             </table>
                         </div>
@@ -143,28 +122,28 @@
                                     <tbody>
                                         <tr>
                                             <td class="left">
+                                                <strong>Template Cost</strong>
+                                            </td>
+                                            <td class="right">{{ order.template.price }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="left">
                                                 <strong>Subtotal</strong>
                                             </td>
-                                            <td class="right">$8.497,00</td>
+                                            <td class="right">${{ order.get_subtotal_amount_order }}</td>
                                         </tr>
                                         <tr>
                                             <td class="left">
-                                                <strong>Discount (20%)</strong>
+                                                <strong>TAX (16%)</strong>
                                             </td>
-                                            <td class="right">$1,699,40</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="left">
-                                                <strong>VAT (10%)</strong>
-                                            </td>
-                                            <td class="right">$679,76</td>
+                                            <td class="right">${{ order.get_order_tax }}</td>
                                         </tr>
                                         <tr>
                                             <td class="left">
                                                 <strong>Total</strong>
                                             </td>
                                             <td class="right">
-                                                <strong>$7.477,36</strong>
+                                                <strong>${{ order.get_total_amount_order }}</strong>
                                             </td>
                                         </tr>
                                     </tbody>

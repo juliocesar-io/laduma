@@ -7,7 +7,7 @@
         <div  class="image-text">
 
 
-            <span class="button template-btn btn-large" href="{{ e.url }}" target="_blank">DEMO <i class="material-icons play">play_arrow</i></span>
+            <span class="button template-btn btn-large" onclick="location.href='{{ e.url }}'" target="_blank">DEMO <i class="material-icons play">play_arrow</i></span>
             <br>
             <br>
             <span class="button template-btn btn-large" data-toggle="modal" data-target="#modal-{{ e.id }}">MORE INFO</span>
@@ -38,7 +38,7 @@
         <div class="modal-content">
           <div class="modal-body">
               <div class="row">
-                <div class="col-md-6 col-md-offset-1 image fit"><img class = " template-image" src="/media/{{ e.photo_cover }}" alt="image example of {{ e.title }} template" /></div>
+                <div class="col-md-6 col-md-offset-1 image fit"><img class = " template-image-cover" src="/media/{{ e.photo_cover }}" alt="image example of {{ e.title }} template" /></div>
                 <div class="col-md-6">
                     <h1 class = "title">{{ e.title }}</h1>
                     <h4 class = "price"> {% if request.COOKIES.currency  %}
@@ -62,7 +62,7 @@
                     <a><img class="thumbnail zoom"src="http://placehold.it/100x60"></a>
                 </div>
                 <div class="col-md-6">
-                    <a class="btn btn-modal btn-block" href="/steps/{{ e.id }}">I want this</a>
+                    <a class="btn btn-modal btn-block" href="/steps/{{ e.id }}">Choose this Template</a>
                 </div>
               </div>
           </div>
