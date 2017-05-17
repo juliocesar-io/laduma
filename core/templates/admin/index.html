@@ -117,18 +117,30 @@
 
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-9">
             <div class="card">
                             <div class="card-header">
-                                Montly Report
+                                Order/Deals Report
                             </div>
                             <div class="card-block">
                                 <div class="chart-wrapper"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
-                                    <canvas id="canvas-2" style="display: block; height: 170px; width: 426px;" width="852" height="340"></canvas>
+                                    <canvas id="canvas-2" ></canvas>
                                 </div>
                             </div>
                         </div>
         </div>
+        <div class="col-lg-3">
+                            <div class="card">
+                                <div class="card-header">
+                                Sales per-template
+                            </div>
+                            <div class="card-block">
+                                <div class="chart-wrapper"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
+                                    <canvas id="canvas-3" style="display: block; height: 316px; width: 426px;" width="300" height="500"></canvas>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
     </div>
 
 
@@ -222,6 +234,45 @@
 
 
 {% endif %}
+
+      <script src="{% static "assets/js/Chart.min.js" %}"></script>
+
+
+    <script>
+
+
+      var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+      var barChartData = {
+        labels : ['April','May','June','July'],
+        datasets : [
+          {
+            backgroundColor : 'rgba(220,220,220,0.5)',
+            borderColor : 'rgba(220,220,220,0.8)',
+            highlightFill: 'rgba(220,220,220,0.75)',
+            highlightStroke: 'rgba(220,220,220,1)',
+            label: "Deals",
+            data : [{{m4}},{{m5}},{{m6}},{{m7}}]
+          },
+          {
+            backgroundColor : 'rgba(151,187,205,0.5)',
+            borderColor : 'rgba(151,187,205,0.8)',
+            highlightFill : 'rgba(151,187,205,0.75)',
+            highlightStroke : 'rgba(151,187,205,1)',
+            label: "Income",
+            data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+          }
+        ]
+      }
+      var ctx = document.getElementById('canvas-2');
+      var chart = new Chart(ctx, {
+        type: 'bar',
+        data: barChartData,
+        options: {
+          responsive: true
+        }
+      });
+
+    </script>
 
 
 

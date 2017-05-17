@@ -104,6 +104,15 @@ def dashboard(request):
     o_c = Order.objects.all().count
     d = Order.objects.filter(is_deal=True).count
 
+    # TODO: MUST Improve this
+
+
+
+    m4 = Order.objects.filter(created_date__year=2017, created_date__month=04).count
+    m5 = Order.objects.filter(created_date__year=2017, created_date__month=05).count
+    m6 = Order.objects.filter(created_date__year=2017, created_date__month=06).count
+    m7 = Order.objects.filter(created_date__year=2017, created_date__month=07).count
+
     income = 0
 
     for oi in o:
@@ -118,6 +127,10 @@ def dashboard(request):
         'o_c': o_c,
         'd': d,
         'income': income,
+        'm4': m4,
+        'm5': m5,
+        'm6': m6,
+        'm7': m7,
     })
 
     template = 'admin/index.html'
