@@ -137,7 +137,6 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 
-
 DJANGO_MONEY_RATES = {
     'DEFAULT_BACKEND': 'djmoney_rates.backends.OpenExchangeBackend',
     'OPENEXCHANGE_URL': 'http://openexchangerates.org/api/latest.json',
@@ -146,3 +145,10 @@ DJANGO_MONEY_RATES = {
 }
 
 MEDIA_ROOT =  os.path.join('laduma/media')
+
+
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
