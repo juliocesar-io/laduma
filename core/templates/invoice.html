@@ -29,7 +29,7 @@
                     <div class="card">
                     <div class="card-header">
                         Invoice
-                        <strong>#</strong>
+                        <strong>000{{ order.id }}</strong>
                         <a href="#" class="btn btn-sm btn-info float-right" onclick="javascript:window.print();"><i class="fa fa-print"></i> Print</a>
 
                     </div>
@@ -51,10 +51,9 @@
                             <div class="col-sm-4">
                                 <h6 class="mb-1">To:</h6>
                                 <div>
-                                    <strong>{{ client }}</strong>
+                                    <strong>{{ client.name }}</strong>
                                 </div>
-                                <div>Email: {client.mail}</div>
-                                <div>Phone: +48 123 456 789</div>
+                                <div>Email: {{client.mail}}</div>
                             </div>
                             <!--/.col-->
 

@@ -138,10 +138,18 @@ def dashboard(request):
 
 def invoice(request, id_order):
 
+    order = Order.objects.get(id=id_order)
+    client = Client.objects.get(id=order.client_id)
 
-    context = admin.site.each_context(request)
+    params = {
+        "order": order,
+        "client": client,
+    }
+
+    context= admin.site.each_context(request)
     context.update({
     })
 
     template = 'invoice.html'
+# send -> params**
     return render(request, template, context)
