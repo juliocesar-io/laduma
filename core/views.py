@@ -72,10 +72,9 @@ class OrderSteps(CookieWizardView):
 
         for i in template_options.cleaned_data['packages']:
             new.packages.add(i)
+        m = client.mail
 
-
-        return render(self.request, 'ponme_lindo_andi.html', {
-        })
+        return render(self.request, 'step_final.html', {'mail':m})
 
 order_view = OrderSteps.as_view(FORMS)
 
@@ -104,6 +103,15 @@ def dashboard(request):
     o_c = Order.objects.all().count
     d = Order.objects.filter(is_deal=True).count
 
+    # TODO: MUST Improve this
+
+
+
+    m4 = Order.objects.filter(created_date__year=2017, created_date__month=04).count
+    m5 = Order.objects.filter(created_date__year=2017, created_date__month=05).count
+    m6 = Order.objects.filter(created_date__year=2017, created_date__month=06).count
+    m7 = Order.objects.filter(created_date__year=2017, created_date__month=07).count
+
     income = 0
 
     for oi in o:
@@ -118,13 +126,17 @@ def dashboard(request):
         'o_c': o_c,
         'd': d,
         'income': income,
+        'm4': m4,
+        'm5': m5,
+        'm6': m6,
+        'm7': m7,
     })
 
     template = 'admin/index.html'
     return render(request, template, context)
 
 
-def invoice(request):
+def invoice(request, id_order):
 
 
     context = admin.site.each_context(request)

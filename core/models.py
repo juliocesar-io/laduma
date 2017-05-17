@@ -9,8 +9,13 @@ from djmoney.models.fields import MoneyField
 
 class Client(models.Model):
     """client info"""
+    created_date = models.DateTimeField(auto_now_add=True, null=True)
+    modified_date = models.DateTimeField(auto_now=True,  null=True)
+
     name = models.CharField(max_length=100)
     mail = models.EmailField()
+
+
 
     def __unicode__(self):
         return unicode(self.mail)
@@ -28,6 +33,8 @@ class Package(models.Model):
 
 class Template(models.Model):
     """template: """
+
+
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
     photo_cover = models.FileField(upload_to='laduma/media/covers')
@@ -40,6 +47,9 @@ class Template(models.Model):
 
 class Order(models.Model):
     """a client order"""
+    created_date = models.DateTimeField(auto_now_add=True,  null=True)
+    modified_date = models.DateTimeField(auto_now=True,  null=True)
+
     template = models.ForeignKey(Template)
     client = models.ForeignKey(Client)
     packages = models.ManyToManyField(Package)
