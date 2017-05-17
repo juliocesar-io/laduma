@@ -3,7 +3,18 @@
 
 {% block content %}
 
-    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+
+    <style>
+
+    strong {
+        color:#c29b00 !important;
+    }
+
+    .inner {
+        width: 100% !important;
+    }
+    </style>
 
 <!-- Main -->
 <div id="main">
@@ -18,7 +29,7 @@
                     <div class="card">
                     <div class="card-header">
                         Invoice
-                        <strong>#90-98792</strong>
+                        <strong>#</strong>
                         <a href="#" class="btn btn-sm btn-info float-right" onclick="javascript:window.print();"><i class="fa fa-print"></i> Print</a>
 
                     </div>
@@ -28,11 +39,11 @@
                             <div class="col-sm-4">
                                 <h6 class="mb-1">From:</h6>
                                 <div>
-                                    <strong>BootstrapMaster.com</strong>
+                                    <strong>Laduma</strong>
                                 </div>
                                 <div>Konopnickiej 42</div>
-                                <div>43-190 Mikolow, Poland</div>
-                                <div>Email: lukasz@bootstrapmaster.com</div>
+                                <div>43-190 China</div>
+                                <div>Email: laduma.lol.com</div>
                                 <div>Phone: +48 123 456 789</div>
                             </div>
                             <!--/.col-->
@@ -40,11 +51,9 @@
                             <div class="col-sm-4">
                                 <h6 class="mb-1">To:</h6>
                                 <div>
-                                    <strong>BootstrapMaster.com</strong>
+                                    <strong>{{ client }}</strong>
                                 </div>
-                                <div>Konopnickiej 42</div>
-                                <div>43-190 Mikolow, Poland</div>
-                                <div>Email: lukasz@bootstrapmaster.com</div>
+                                <div>Email: {client.mail}</div>
                                 <div>Phone: +48 123 456 789</div>
                             </div>
                             <!--/.col-->
@@ -54,9 +63,8 @@
                                 <div>Invoice
                                     <strong>#90-98792</strong>
                                 </div>
-                                <div>March 30, 2013</div>
-                                <div>VAT: PL9877281777</div>
-                                <div>Account Name: BootstrapMaster.com</div>
+                                <div>{DATE}</div>
+                                <div>Account Name: Laduma</div>
                                 <div>
                                     <strong>SWIFT code: 99 8888 7777 6666 5555</strong>
                                 </div>
@@ -118,10 +126,15 @@
                         <div class="row">
 
                             <div class="col-lg-4 col-sm-5">
-                                <div class="well">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                </div>
+                                <br>
+                                <br>
+                                <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="hosted_button_id" value="YSB8EAGLEDLNY">
+                                    <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                    <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                                </form>
+
                             </div>
                             <!--/.col-->
 
@@ -156,32 +169,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                               <div id="paypal-button"></div>
 
-    <script>
-        paypal.Button.render({
-
-            env: 'sandbox', // Or 'sandbox',
-
-            commit: true, // Show a 'Pay Now' button
-
-            style: {
-            size: 'medium',
-            color: 'blue',
-            shape: 'pill',
-            label: 'checkout'
-        },
-
-            payment: function() {
-                // Set up the payment here
-            },
-
-            onAuthorize: function(data, actions) {
-                // Execute the payment here
-           }
-
-        }, '#paypal-button');
-    </script>
                             </div>
                             <!--/.col-->
 
