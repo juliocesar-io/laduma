@@ -85,7 +85,7 @@
                 <div class="card-block p-0 clearfix">
                     <i  style="background-color: #333!important;" class="fa fa-laptop bg-danger p-2 px-3 font-2xl mr-1 float-left"></i>
                     <div class="h5 mb-0 pt-1 text-center">{{ d }}</div>
-                    <div class="text-muted text-uppercase font-weight-bold font-xs text-center">Deals</div>
+                    <div class="text-muted text-uppercase font-weight-bold font-xs text-center">Payments</div>
                 </div>
             </div>
         </a>
@@ -120,7 +120,7 @@
         <div class="col-md-9">
             <div class="card">
                             <div class="card-header">
-                                Order/Deals Report
+                                Order/Payments Report
                             </div>
                             <div class="card-block">
                                 <div class="chart-wrapper"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
@@ -246,20 +246,19 @@
         labels : ['April','May','June','July'],
         datasets : [
           {
-            backgroundColor : 'rgba(220,220,220,0.5)',
+              backgroundColor : 'rgba(151,187,205,0.5)',
             borderColor : 'rgba(220,220,220,0.8)',
             highlightFill: 'rgba(220,220,220,0.75)',
             highlightStroke: 'rgba(220,220,220,1)',
-            label: "Deals",
+            label: "Orders",
             data : [{{m4}},{{m5}},{{m6}},{{m7}}]
           },
-          {
-            backgroundColor : 'rgba(151,187,205,0.5)',
+          { backgroundColor : 'rgba(220,220,220,0.5)',
             borderColor : 'rgba(151,187,205,0.8)',
             highlightFill : 'rgba(151,187,205,0.75)',
             highlightStroke : 'rgba(151,187,205,1)',
-            label: "Income",
-            data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+            label: "Payments",
+            data : [{{n4}},{{n5}},{{n6}},{{n7}}]
           }
         ]
       }
@@ -271,6 +270,35 @@
           responsive: true
         }
       });
+
+          var doughnutData = {
+    labels: [
+      'Orders',
+      'Payments',
+    ],
+    datasets: [{
+      data: [{{ o_c }}, {{ d }}],
+      backgroundColor: [
+        '#FF6384',
+        '#36A2EB',
+      ],
+      hoverBackgroundColor: [
+        '#FF6384',
+        '#36A2EB',
+      ]
+    }]
+  };
+
+
+  var ctx = document.getElementById('canvas-3');
+  var chart = new Chart(ctx, {
+    type: 'doughnut',
+    data: doughnutData,
+    options: {
+      responsive: true
+    }
+  });
+
 
     </script>
 
