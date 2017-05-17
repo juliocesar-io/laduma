@@ -32,6 +32,9 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    # apps
+    'core',
+    'core.apps.SuitConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,11 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'formtools',
-    #apps
-    'core',
+    'djmoney_rates',
+
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -66,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
             ],
         },
     },
@@ -127,9 +131,16 @@ STATICFILES_DIRS = (
     os.path.join('laduma/static'),
 )
 
-
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
+
+
+DJANGO_MONEY_RATES = {
+    'DEFAULT_BACKEND': 'djmoney_rates.backends.OpenExchangeBackend',
+    'OPENEXCHANGE_URL': 'http://openexchangerates.org/api/latest.json',
+    'OPENEXCHANGE_APP_ID': 'a9dbd882500a4065892b3470dac96b6f',
+    'OPENEXCHANGE_BASE_CURRENCY': 'USD',
+}
 
 MEDIA_ROOT =  os.path.join('laduma/media')

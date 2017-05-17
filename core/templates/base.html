@@ -8,55 +8,152 @@
     <link rel="stylesheet" href="{% static "assets/css/main.css" %}" />
     <link rel="stylesheet" href="{% static "assets/css/steps.css" %}" />
     <link rel="stylesheet" href="{% static "assets/css/check.css" %}" />
-        <link rel="stylesheet" href="{% static "assets/css/colors.css" %}" />
+    <link rel="stylesheet" href="{% static "assets/css/colors.css" %}" />
+    <link rel="stylesheet" href="{% static "assets/css/currency-flags.min.css" %}" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
     <link href="https://bootswatch.com/4-alpha/flatly/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .nav-link, .navbar-brand{
+            border-bottom: 1px solid transparent;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        .nav-link:hover{
+            color: #c29b00 !important;
+        }
+        body {
+            background: #EEEEEE;
+        }
+
+        .dropdown-menu {
+                min-width: 5rem !important;
+        }
+
+        .button:hover{
+            background: #c29b00 !important;
+        }
+
+        .currency-option{
+            background-color: transparent !important;
+            color: #2C3E50 !important;
+        }
+
+        .inner {
+            background: #fff;
+            padding-top: 50px;
+            padding-bottom: 44px;
+            width: 70% !important;
+        }
+
+        #cover .image-text {
+            position:absolute;
+            left: 139px;
+            top: 140px;
+	    }
+
+        h5 {
+            color: #E0E0E0;
+        }
+
+        #main {
+            padding: 4em 0 0 0;
+        }
+
+        .steps {
+                position: sticky !important;
+        }
+
+
+        .navbar {
+            -webkit-box-shadow: 0 0 20px 0 #757575;
+            box-shadow: 0 0 20px 0 #757575;
+            background: #FFFFFF;
+        }
+    </style>
 </head>
 <body id="top">
 
+<nav class="navbar navbar-toggleable-md fixed-top">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+  <a class="navbar-brand" href="/"><img style="width: 100px;" src="{% static 'images/logo.svg' %}" alt=""></a>
 
-<section id="banner">
-    <a href="#">
-        <div class="logo"> </div>
-    </a>
-    <div class="nav">     
-    </div>
-    <div class="inner">
-        <header>
-            <h1>Your Personal Offer for your Website</h1><br>
-            <h1>Issue it now without costs and commitments</h1>
-            <p> Choose your template and additional packages and get an idea how much your website would cost </p>
-        </header>
-    </div>
-</section>
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+        <a class="nav-link" href="http://www.laduma.ch/kontakt/">About</a>
+      </li>
+        <li  class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download"><div class="currency-flag currency-flag-{{ request.COOKIES.currency|lower }}"></div>{{ request.COOKIES.currency }} <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="download">
+
+                      <a class="" href="#">
+                        <form action="{% url "set-currency" "MXN" %}" method="post">
+                            {% csrf_token %}
+                            <input class="dropdown-item currency-option" type="submit" value="MXN"/>
+                        </form>
+                    </a>
+
+                  <a class="" href="#">
+                        <form action="{% url "set-currency" "COP" %}" method="post">
+                            {% csrf_token %}
+                            <input class="dropdown-item currency-option" type="submit" value="COP"/>
+                        </form>
+                  </a>
+
+                  <a class="" href="#">
+                        <form action="{% url "set-currency" "CHF" %}" method="post">
+                            {% csrf_token %}
+                            <input class="dropdown-item currency-option" type="submit" value="CHF"/>
+                        </form>
+                  </a>
+
+                  <a class="" href="#">
+                        <form action="{% url "set-currency" "USD" %}" method="post">
+                            {% csrf_token %}
+                            <input class="dropdown-item currency-option" type="submit" value="USD"/>
+                        </form>
+                  </a>
+                  <a class="" href="#">
+                        <form action="{% url "set-currency" "EUR" %}" method="post">
+                            {% csrf_token %}
+                            <input class="dropdown-item currency-option" type="submit" value="EUR"/>
+                        </form>
+                  </a>
+
+              </div>
+            </li>
+
+
+    </ul>
+
+    <a style="color:#9E9E9E" href="/admin/dash/" class="nav-link">Admin</a>
+
+  </div>
+</nav>
+
 
 {% block content %}
 {% endblock %}
 
-<!-- Footer -->
-<footer id="footer">
-    <div class="inner">
 
-        <ul class="icons">
-            <li><a href="https://www.facebook.com/LadumaWeb/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-            <li><a href="https://www.linkedin.com/company/laduma-luzern" class="icon fa-instagram"><span class="label">Linkedin</span></a></li>
-            <li><a href="https://twitter.com/LadumaW" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-            <li><a href="mailto: contact@laduma.ch" class="icon fa-envelope"><span class="label">Email</span></a></li>
-        </ul>
-        <br>
-        <p>Laduma</p>
-        <br>
 
-    </div>
-</footer>
 
 <!-- Scripts -->
 
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-<script src="{% static 'assets/js/colors2.js' %}"></script>
+
+{% block extra-js %}
+
+{% endblock %}
+
 </body>
 </html>

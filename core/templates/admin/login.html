@@ -1,0 +1,33 @@
+{% extends 'admin/login.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block extrastyle %}
+
+    <style>
+        #header {
+
+        background-color: #fff !important;
+
+
+        }
+
+    .submit-row input {
+        text-transform: uppercase;
+        background-color: #c29b00 !important;
+
+    }
+
+
+    </style>
+{% endblock %}
+
+{% block branding %}
+    <div class="suit-login-graphic">
+        <img style="width: 100px"  class="logo-menu" src="{% static 'images/logo.svg'%}" alt="logo">
+    </div>
+
+    <h5 style="color: #9E9E9E; text-transform: uppercase">Admin</h5>
+
+{% endblock %}
+

@@ -1,26 +1,29 @@
 
 {% load static %}
+{% load functions %}
 <div class="box">
     <a class="image fit" id="cover">
         <img class = " template-image-cover hover" src="/media/{{ e.photo_cover }}" alt="image example of {{ e.title }} template" />
-        <p class="image-text">
-            {{ e.description }}
-            <br>
-            <br>
+        <div  class="image-text">
+
+
             <span class="button template-btn btn-large" href="{{ e.url }}" target="_blank">DEMO <i class="material-icons play">play_arrow</i></span>
             <br>
             <br>
             <span class="button template-btn btn-large" data-toggle="modal" data-target="#modal-{{ e.id }}">MORE INFO</span>
 
-        </p>
+        </div>
     </a>
-        <div class="inner">
+        <div style="background: #1a252f" class="inner">
             <div class = "row">
                     <div class="col-md-6 align-left detail">
-                        <h3>{{e.title}}</h3>
+                        <h5>{{e.title}}</h5>
                     </div>
                     <div class="col-md-6 align-right detail">
-                        <h3>{{ e.price }}</h3>
+                        {% if request.COOKIES.currency  %}
+                        <h5>{% convert_currency e.price.amount "MXN" request.COOKIES.currency  %}</h5>
+
+                        {% endif %}
                     </div>
 
             </div>
@@ -38,7 +41,10 @@
                 <div class="col-md-6 col-md-offset-1 image fit"><img class = " template-image" src="/media/{{ e.photo_cover }}" alt="image example of {{ e.title }} template" /></div>
                 <div class="col-md-6">
                     <h1 class = "title">{{ e.title }}</h1>
-                    <h4 class = "price">{{ e.price }}</h4>
+                    <h4 class = "price"> {% if request.COOKIES.currency  %}
+                        {% convert_currency e.price.amount "MXN" request.COOKIES.currency  %}
+                        {% endif %}
+                    </h4>
                     <br>
                     <p>{{ e.description }}</p>
                     <br>
@@ -56,7 +62,7 @@
                     <a><img class="thumbnail zoom"src="http://placehold.it/100x60"></a>
                 </div>
                 <div class="col-md-6">
-                    <a class="btn btn-modal btn-block" href="/step2/{{ e.id }}">I want this</a>
+                    <a class="btn btn-modal btn-block" href="/steps/{{ e.id }}">I want this</a>
                 </div>
               </div>
           </div>

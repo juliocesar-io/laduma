@@ -40,18 +40,18 @@
 }
 /* Base Styles */
 html {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 /* Component Styles - Steps */
 .steps {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  margin: 0;
-  padding: 0 0 2rem 0;
-  list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0 0 2rem 0;
+    list-style: none;
 }
 
 .step {
@@ -96,7 +96,7 @@ html {
 }
 .step:after {
   width: 0;
-  background-color: #00B57B;
+  background-color: #c29b00;
 }
 .step--complete:after {
   width: 100% !important;
@@ -116,10 +116,10 @@ html {
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   background-color: #EEEEEE;
-  border: 0.25rem solid rgba(230, 231, 232, 0.25);
+  border: 0.15rem solid rgba(230, 231, 232, 0.25);
   border-radius: 50%;
   color: transparent;
   font-size: 2rem;
@@ -134,15 +134,15 @@ html {
   transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 .step--incomplete.step--active .step__icon {
-  border-color: #00B57B;
+  border-color: #c29b00;
   -webkit-transition-delay: 0.5s;
           transition-delay: 0.5s;
 }
 .step--complete .step__icon {
   -webkit-animation: bounce 0.5s ease-in-out;
           animation: bounce 0.5s ease-in-out;
-  background-color: #00B57B;
-  border-color: #00B57B;
+  background-color: #c29b00;
+  border-color: #c29b00;
   color: #fff;
 }
 

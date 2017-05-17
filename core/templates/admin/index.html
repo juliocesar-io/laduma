@@ -1,0 +1,235 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "assets/css/admin.css" %}" />
+
+<style media="screen">
+.content-block{
+  padding: 0;
+}
+.main-icon{
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.main-icon svg{
+  margin-top:20px;
+}
+.main-item p{
+  color:black;
+  font-size: 16px;
+  margin-top: 1em;
+}
+.main {
+  text-align: center;
+}
+.main .main-item {
+  display: inline-block;
+  margin: 4.5em;
+}
+.main-item:hover {
+  text-decoration: none;
+}
+
+#content{
+
+        margin-left: 210px;
+
+}
+
+#header {
+    position: fixed;
+    height:100%;
+}
+</style>
+{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}{{ block.super }} dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+
+
+{% block content %}
+
+
+
+{% if request.user.is_superuser %}
+
+
+<div style="top:50px" class="col-md-12 main ">
+
+<div class="container-fluid">
+
+
+<div class="animated fadeIn">
+
+    <div class="row">
+
+        <a href="/admin/core/client/" class="col-sm-6 col-lg-3">
+            <div class="card">
+                <div class="card-block p-0 clearfix">
+                    <i style="background-color: #c29b00!important;" class="fa fa-user-circle bg-primary p-2 px-3 font-2xl mr-1 float-left"></i>
+                    <div class="h5 mb-0 pt-1 text-center">{{ c }}</div>
+                    <div class="text-muted text-uppercase font-weight-bold font-xs text-center">Clients</div>
+                </div>
+            </div>
+        </a>
+        <!--/.col-->
+
+        <a href="/admin/core/order/?is_deal__exact=1" class="col-sm-6 col-lg-3">
+            <div class="card">
+                <div class="card-block p-0 clearfix">
+                    <i  style="background-color: #333!important;" class="fa fa-laptop bg-danger p-2 px-3 font-2xl mr-1 float-left"></i>
+                    <div class="h5 mb-0 pt-1 text-center">{{ d }}</div>
+                    <div class="text-muted text-uppercase font-weight-bold font-xs text-center">Deals</div>
+                </div>
+            </div>
+        </a>
+        <!--/.col-->
+
+        <div class="col-sm-6 col-lg-3">
+            <div class="card">
+                <div class="card-block p-0 clearfix">
+                    <i  class="fa fa-usd bg-success p-2 px-3 font-2xl mr-1 float-left"></i>
+                    <div class="h5 mb-0 pt-1 text-center">{{ income }}</div>
+                    <div class="text-muted text-uppercase font-weight-bold font-xs text-center">Income</div>
+                </div>
+            </div>
+        </div>
+        <!--/.col-->
+
+        <a href="/admin/core/order/" class="col-sm-6 col-lg-3">
+            <div class="card">
+                <div class="card-block p-0 clearfix">
+                    <i style="background-color: rgba(151,187,205,0.5) !important;" class="fa fa-bell bg-info p-2 px-3 font-2xl mr-1 float-left"></i>
+                    <div class="h5 mb-0 pt-1 text-center">{{ o_c }}</div>
+                    <div class="text-muted text-uppercase font-weight-bold font-xs text-center">Orders</div>
+                </div>
+            </div>
+        </a>
+        <!--/.col-->
+    </div>
+    <!--/.row-->
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                            <div class="card-header">
+                                Montly Report
+                            </div>
+                            <div class="card-block">
+                                <div class="chart-wrapper"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
+                                    <canvas id="canvas-2" style="display: block; height: 170px; width: 426px;" width="852" height="340"></canvas>
+                                </div>
+                            </div>
+                        </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+
+                                         <div class="card-header">
+                                Payments History
+                            </div>
+                <div style="padding: 0 1rem 1rem 1rem" class="card-block">
+                    <div class="row">
+
+
+                    <!--/.row-->
+                    <br>
+                    <table class="table table-hover table-outline mb-0 hidden-sm-down">
+                        <thead class="thead-default">
+                            <tr>
+                                <th class="text-center"><i class="icon-people"></i>
+                                </th>
+                                <th>User</th>
+                                <th class="text-center">Country</th>
+                                <th>Order</th>
+                                <th class="text-center">Payment Method</th>
+                                <th>Activity</th>
+                                <th class="text-center"><i class="icon-settings"></i>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td class="text-center">
+                                    <div class="avatar">
+                                        <img src="http://i.imgur.com/BzykM5H.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                                        <span class="avatar-status badge-default"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>Julio Cesar</div>
+                                    <div class="small text-muted">
+                                        Registered: Jan 1, 2015
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <div class="currency-flag currency-flag-cop"></div>
+                                </td>
+                                <td>
+                                    <div class="clearfix">
+                                        <div class="float-left">
+                                            <strong>Template 1</strong>
+                                        </div>
+                                        <div class="float-right">
+                                            <small class="text-muted">Packages: Maps, Blog</small>
+                                        </div>
+                                    </div>
+                                    <div class="progress progress-xs">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <i class="fa fa-paypal" style="font-size:24px"></i>
+                                </td>
+                                <td>
+                                    <div class="small text-muted">Last login</div>
+                                    <strong>Last month</strong>
+                                </td>
+
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-link text-muted"><i class="icon-settings"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+    <!--/.row-->
+
+</div>
+
+</div>
+            </div>
+</div>
+
+
+{% endif %}
+
+
+
+{% endblock %}
+
+{% block sidebar %}
+<div id="content-related">
+
+</div>
+
+{% endblock %}

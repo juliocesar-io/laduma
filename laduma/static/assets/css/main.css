@@ -730,10 +730,10 @@
 		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		background-color: #00B57B;
+		background-color: #c29b00;
 		border-radius: 4px;
 		border: 0;
-		color: #ffffff !important;
+		color: #ffffff;
 		cursor: pointer;
 		display: inline-block;
 		font-weight: 400;
@@ -750,7 +750,7 @@
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
-			background-color: #00B57B;
+			background-color: #c29b00;
 		}
 
 		input[type="submit"]:active,
@@ -758,7 +758,7 @@
 		input[type="button"]:active,
 		button:active,
 		.button:active {
-			background-color: #00B57B;
+			background-color: #c29b00;
 		}
 
 		input[type="submit"].icon,
@@ -893,7 +893,7 @@
 		-ms-justify-content: center;
 		justify-content: center;
 		padding: 8em 4em 6em 4em;
-		height: 500px;
+		height: 600px;
 		border-top:0;
 		position: relative;
 		text-align: center;
@@ -919,8 +919,8 @@
 		#banner .logo:hover {
 			outline: 2px solid rgb(241,241,241);
 			outline-offset: 5px;
-			transition: 0.2s;
-			-webkit-transition:0.2s
+			transition: 0.1s;
+			-webkit-transition:0.1s
 		}
 		#banner .nav {
 			background-image: url("images/nav.png");
@@ -932,6 +932,12 @@
 			position: absolute;
 			right: 40px;
 			top: 40px;
+		}
+		#banner .nav:hover {
+			outline: 2px solid rgb(241,241,241);
+			outline-offset: 5px;
+			transition: 0.1s;
+			-webkit-transition:0.1s
 		}
 
 		#banner .inner {
@@ -1127,8 +1133,9 @@
 
 	#footer {
 		padding: 4em 0 2em 0;
-		background-color: #1b1b1f;
+		background-color: #2e2e2e;
 		text-align: center;
+		color: rgba(241,241,241,0.3);
 	}
 
 		#footer .inner {
@@ -1153,7 +1160,7 @@
 			}
 
 		#footer .copyright {
-			color: rgba(255, 255, 255, 0.5);
+			color: rgba(241, 241, 241, 0.8);
 			font-size: 0.9em;
 			margin: 0 0 2em 0;
 			padding: 0;
@@ -1172,7 +1179,7 @@
 		font-weight: 400;
 	}
 	.price {
-		color: #00B57B;
+		color: #c29b00;
 		font-weight: 100;
 		font-style: italic;
 
@@ -1208,8 +1215,8 @@
 
 	.btn-modal{
 	  color: #ffffff;
-	  background-color: #00B57B;
-	  border-color: #00B57B;
+	  background-color: #c29b00;
+	  border-color: #c29b00;
 	}
 
 /**gallery margins**/
@@ -1268,9 +1275,9 @@
 	}
 
 	#cover .image-text {
-		position:relative;
-		top:-300px;
-		left:0px;
+		position:absolute;
+        left: 200px;
+        top: 140px;
 		color: white;
 		font-weight: 200;
 		visibility:hidden;
