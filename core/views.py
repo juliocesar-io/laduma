@@ -141,13 +141,11 @@ def invoice(request, id_order):
     order = Order.objects.get(id=id_order)
     client = Client.objects.get(id=order.client_id)
 
-    params = {
-        "order": order,
-        "client": client,
-    }
 
     context= admin.site.each_context(request)
     context.update({
+        "order": order,
+        "client": client,
     })
 
     template = 'invoice.html'
