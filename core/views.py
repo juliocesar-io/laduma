@@ -102,7 +102,7 @@ def dashboard(request):
 
     c = Client.objects.all().count
     o = Order.objects.filter(is_deal=True)
-    o_c = Order.objects.all().coun
+    o_c = Order.objects.all().count
     d = Order.objects.filter(is_deal=True).count
 
     income = 0
