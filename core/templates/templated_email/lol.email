@@ -25,7 +25,7 @@
                         Invoice #
                         <strong>000{{ order.id }}</strong>
 
-                        <div>Link to invoice: http://localhost:8000/invoice/{{order.id}}</div>
+                        <div>Link to invoice: http://138.197.106.57:8000/invoice/{{order.id}}</div>
 
                     </div>
                     <div class="card-block">
