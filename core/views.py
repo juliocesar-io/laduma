@@ -87,7 +87,7 @@ def order_wizard_view(request, id_template):
 @require_POST
 def set_currency(request, currency):
 
-    reponse = redirect('index')
+    reponse = redirect(request.META.get('HTTP_REFERER'))
 
     reponse.set_cookie('currency', currency )
 
@@ -112,6 +112,12 @@ def dashboard(request):
     m6 = Order.objects.filter(created_date__year=2017, created_date__month=06).count
     m7 = Order.objects.filter(created_date__year=2017, created_date__month=07).count
 
+    n4 = Order.objects.filter(modified_date__year=2017, modified_date__month=04, is_deal=True).count
+    n5 = Order.objects.filter(modified_date__year=2017, modified_date__month=05, is_deal=True).count
+    n6 = Order.objects.filter(modified_date__year=2017, modified_date__month=06, is_deal=True).count
+    n7 = Order.objects.filter(modified_date__year=2017, modified_date__month=07, is_deal=True).count
+
+
     income = 0
 
     for oi in o:
@@ -130,6 +136,10 @@ def dashboard(request):
         'm5': m5,
         'm6': m6,
         'm7': m7,
+        'n4': n4,
+        'n5': n5,
+        'n6': n6,
+        'n7': n7,
     })
 
     template = 'admin/index.html'
