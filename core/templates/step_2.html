@@ -52,7 +52,7 @@
                     {% for e in p %}
                   <p>
                     <input onclick="get()" name="package" type="checkbox" id="{{ e.name }}" value="{{ e.price }}" />
-                    <label for="{{ e.name }}">{{ e.name }}  - {{ e.price }}</label>
+                    <label for="{{ e.name }}"><img class = "template-image" src="/media/{{ e.icon }}"/> {{ e.name }}  - {{ e.price }}</label>
                   </p>
                     {% endfor %}
                 </form>

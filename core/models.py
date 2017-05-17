@@ -17,6 +17,7 @@ class Package(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=255)
     price = MoneyField(max_digits=10, decimal_places=0, default_currency='MXN')
+    icon = models.FileField(upload_to='laduma/media/icons')
 
 
     def __unicode__(self):

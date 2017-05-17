@@ -74,6 +74,7 @@ html {
   position: relative;
   pointer-events: none;
 }
+
 .step--active, .step--complete {
   cursor: pointer;
   pointer-events: all;
