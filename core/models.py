@@ -16,7 +16,6 @@ class Client(models.Model):
     mail = models.EmailField()
 
 
-
     def __unicode__(self):
         return unicode(self.mail)
 
