@@ -74,8 +74,7 @@ class OrderSteps(CookieWizardView):
             new.packages.add(i)
 
 
-        return render(self.request, 'step_1.html', {
-            'form_data': [form.cleaned_data for form in form_list],
+        return render(self.request, 'ponme_lindo_andi.html', {
         })
 
 order_view = OrderSteps.as_view(FORMS)
