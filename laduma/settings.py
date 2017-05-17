@@ -43,8 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'formtools',
     'djmoney_rates',
-
 ]
+
+# You can use a shortcut version
+TEMPLATED_EMAIL_BACKEND = 'templated_email.backends.vanilla_django'
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',

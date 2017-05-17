@@ -9,6 +9,7 @@ from django.forms.models import construct_instance
 from django.views.decorators.http import require_POST
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib import admin
+from templated_email import send_templated_mail
 
 FORMS = [("step1", Step1Form),
          ("step2", Step2Form)]
@@ -62,17 +63,34 @@ class OrderSteps(CookieWizardView):
         client = construct_instance(form_client_step_2, client, form_client_step_2.fields)
         client.save()
 
-        new = Order()
+        order = Order()
         template_options = form_dict['step1']
 
-        new = construct_instance(template_options, new, template_options.fields)
-        new.client = Client.objects.get(id=client.pk)
+        order = construct_instance(template_options, order, template_options.fields)
+        order.client = Client.objects.get(id=client.pk)
 
-        new.save()
+        order.save()
 
         for i in template_options.cleaned_data['packages']:
-            new.packages.add(i)
+            order.packages.add(i)
+
         m = client.mail
+
+        send_templated_mail(
+            template_name='lol',
+            from_email='hello@laduma.ch',
+            recipient_list=[m],
+            context={
+                 "order": order,
+                 "client": client,
+            },
+            # Optional:
+            # cc=['cc@example.com'],
+            # bcc=['bcc@example.com'],
+            # headers={'My-Custom-Header':'Custom Value'},
+            # template_prefix="my_emails/",
+            # template_suffix="email",
+        )
 
         return render(self.request, 'step_final.html', {'mail':m})
 
@@ -159,5 +177,4 @@ def invoice(request, id_order):
     })
 
     template = 'invoice.html'
-# send -> params**
     return render(request, template, context)

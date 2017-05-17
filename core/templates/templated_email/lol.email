@@ -1,10 +1,4 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block content %}
-
-
-
+{% block html %}
     <style>
 
     strong {
@@ -28,9 +22,10 @@
                 <div class="col-md-12">
                     <div class="card">
                     <div class="card-header">
-                        Invoice
+                        Invoice #
                         <strong>000{{ order.id }}</strong>
-                        <a href="#" class="btn btn-sm btn-info float-right" onclick="javascript:window.print();"><i class="fa fa-print"></i> Print</a>
+
+                        <div>Link to invoice: http://localhost:8000/invoice/{{order.id}}</div>
 
                     </div>
                     <div class="card-block">
@@ -41,7 +36,7 @@
                                 <div>
                                     <strong>Laduma</strong>
                                 </div>
-                                 <div>lalalla 42</div>
+                                <div>lalalla 42</div>
                                 <div>San Pedro, Monterrey, UDEM</div>
                                 <div>Email: laduma.lol.com</div>
                                 <div>Phone: +48 123 456 789</div>
@@ -164,10 +159,4 @@
 
     </div>
 </div>
-
-
-
 {% endblock %}
-
-
-
