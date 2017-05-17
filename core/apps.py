@@ -30,6 +30,7 @@ class SuitConfig(DjangoSuitConfig):
         ParentItem('Sales', children=[
             ChildItem('Dashboard', url='/admin/dash/'),
             ChildItem(model='core.order'),
+            ChildItem(model='core.client'),
 
 
         ]),

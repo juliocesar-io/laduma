@@ -11,8 +11,12 @@ class OrderAdmin(admin.ModelAdmin):
     def packages_chossen(self, obj):
      return obj.packages.all()
 
+class ClientAdmin(admin.ModelAdmin):
+    list_display = ['id','name', 'mail']
+
+
 admin.site.register(Template)
 admin.site.register(Package)
 admin.site.register(Order, OrderAdmin)
-admin.site.register(Client)
+admin.site.register(Client, ClientAdmin)
 # Register your models here.
