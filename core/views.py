@@ -58,10 +58,14 @@ class OrderSteps(CookieWizardView):
 
     def done(self, form_list, form_dict, **kwargs):
 
-        client = Client()
-        form_client_step_2 = form_dict['step2']
-        client = construct_instance(form_client_step_2, client, form_client_step_2.fields)
-        client.save()
+        try:
+            client = Client.objects.get(mail=self.request.POST.get('step2-mail', False))
+
+        except Client.DoesNotExist:
+            client = Client()
+            form_client_step_2 = form_dict['step2']
+            client = construct_instance(form_client_step_2, client, form_client_step_2.fields)
+            client.save()
 
         order = Order()
         template_options = form_dict['step1']
